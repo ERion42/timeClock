@@ -1,0 +1,18 @@
+
+nav {
+    height: 25vh;
+    background-color: black;
+}
+
+main {
+    height: 75vh;
+    background-color: blanchedalmond;
+}
+
+#myClock {
+    height: 250px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
