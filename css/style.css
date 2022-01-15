@@ -15,4 +15,22 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Roboto Mono';
+    font-size: 3rem;
+}
+
+#btnIn {
+    display: initial;
+}
+
+#btnOut {
+    display: initial;
+}
+
+#btnBreakS {
+    display: initial;
+}
+
+#btnbreakE {
+    display: initial;
 }

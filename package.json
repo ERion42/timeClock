@@ -1,12 +1,12 @@
 {
   "dependencies": {
+    "jquery": "^3.6.0",
     "moment": "^2.29.1"
   },
   "name": "timeclock",
   "description": "A simple project that I hope to grow into a larger application. Right now it's just going to be a clock.",
   "version": "1.0.0",
   "main": "index.html",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
