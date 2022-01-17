@@ -1,0 +1,21 @@
+Okay, so here's where I'm putting all my notes:
+
+1. LOCAL STORAGE IS BAD
+Local storage should be swapped for a SQL or NoSQL database ASAP. Local Storage is only being utilized so I can get the basic process running.
+
+2. LOOK INTO SESSION STORAGE
+It's not long-term, but can be used to house some of the temporary numbers needed for calculations.
+
+3. STYLE
+Yeah, I know it's not styled. I'll get there.
+
+4. IMPROVE GUI
+Gameify it. Make the user feel like they're sitting at a terminal in a Fallout or Resident Evil game.
+
+5. ADD DATE
+
+6. ADD DISPLAY BOARD
+This might need to come with the database so I can list by descending order.
+
+7. ADD USER COMMENT
+This should be what the user is working on, project-wise

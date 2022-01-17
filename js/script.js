@@ -102,6 +102,29 @@ function breakEnd() {
 
 // Ends the shift and saves the hours
 function endShift() {
+    let totalWorkedTime = localStorage.getItem("clockedTime") - localStorage.getItem("breakTime");
+
+    let totalHrs = totalWorkedTime / 3600000;
+    let hh = Math.floor(totalHrs);
+  
+    let totalMins = (totalHrs - hh) * 60;
+    let mm = Math.floor(totalMins);
+  
+    let totalSecs = (totalMins - mm) * 60;
+    let ss = Math.floor(totalSecs);
+  
+    let totalMss = (totalSecs - ss) * 100;
+    let ms = Math.floor(totalMss);
+  
+    let formattedHH = hh.toString().padStart(2, "0");
+    let formattedMM = mm.toString().padStart(2, "0");
+    let formattedSS = ss.toString().padStart(2, "0");
+    let formattedMS = ms.toString().padStart(2, "0");
+
+    var workedTimeTotal = (`${formattedHH}:${formattedMM}:${formattedSS}:${formattedMS}`);
+    document.getElementById("workedTimeDisplay").innerHTML = workedTimeTotal;
+    document.getElementById("btnShift").style.display = "none";
+    document.getElementById("btnClock").style.display = "inline";
     
 }
 
@@ -113,6 +136,7 @@ function timerStart() {
 function timerEnd() {
     localStorage.setItem("clockOutTime", Date.now());
     var clockedTime = localStorage.getItem("clockOutTime") - localStorage.getItem("clockInTime");
+    localStorage.setItem("clockedTime",clockedTime)
 
     let diffInClockHrs = clockedTime / 3600000;
     let hh = Math.floor(diffInClockHrs);
@@ -145,6 +169,7 @@ function timerBreakStart() {
 function timerBreakEnd() {
     localStorage.setItem("breakEnd", Date.now());
     var breakTime = localStorage.getItem("breakEnd") - localStorage.getItem("breakStart");
+    localStorage.setItem("breakTime", breakTime)
 
     let diffInBreakHrs = breakTime / 3600000;
     let hh = Math.floor(diffInBreakHrs);
