@@ -20,6 +20,7 @@ function Clock() {
     }
     punchClock();
     
+    
 }
 
 // As the Clock function, but for the break button - works as intended but needs work
@@ -60,6 +61,8 @@ function clockIn() {
     const now = moment().format("hh:mm a");
     const humanReadable = now;
     clockedTime.textContent = humanReadable;
+    timerStart();
+    document.getElementById("btnBreak").style.display = "block";
 }
 
 // Updates the Clock Out time
@@ -69,6 +72,9 @@ function clockOut() {
     const now = moment().format("hh:mm a");
     const humanReadable = now;
     clockedTime.textContent = humanReadable;
+    timerEnd();
+    // console.log(localStorage.getItem("clockOutTime")-localStorage.getItem("clockInTime"));
+    document.getElementById("btnBreak").style.display = "none";
 }
 
 // Updates start of Break time
@@ -78,6 +84,8 @@ function breakStart() {
     const now = moment().format("hh:mm a");
     const humanReadable = now;
     clockedTime.textContent = humanReadable;
+    timerBreakStart();
+    document.getElementById("btnClock").style.display = "none";
 }
 
 // Updates End of Break time
@@ -87,4 +95,76 @@ function breakEnd() {
     const now = moment().format("hh:mm a");
     const humanReadable = now;
     clockedTime.textContent = humanReadable;
+    timerBreakEnd();
+    document.getElementById("btnClock").style.display = "block";
+    document.getElementById("btnBreak").style.display = "none";
 }
+
+// Ends the shift and saves the hours
+function endShift() {
+    
+}
+
+// Stopwatch stuff below
+function timerStart() {
+    localStorage.setItem("clockInTime", Date.now());
+}
+
+function timerEnd() {
+    localStorage.setItem("clockOutTime", Date.now());
+    var clockedTime = localStorage.getItem("clockOutTime") - localStorage.getItem("clockInTime");
+
+    let diffInClockHrs = clockedTime / 3600000;
+    let hh = Math.floor(diffInClockHrs);
+  
+    let diffInClockMin = (diffInClockHrs - hh) * 60;
+    let mm = Math.floor(diffInClockMin);
+  
+    let diffInClockSec = (diffInClockMin - mm) * 60;
+    let ss = Math.floor(diffInClockSec);
+  
+    let diffInClockMs = (diffInClockSec - ss) * 100;
+    let ms = Math.floor(diffInClockMs);
+  
+    let formattedHH = hh.toString().padStart(2, "0");
+    let formattedMM = mm.toString().padStart(2, "0");
+    let formattedSS = ss.toString().padStart(2, "0");
+    let formattedMS = ms.toString().padStart(2, "0");
+
+    var clockedTimeTotal = (`${formattedHH}:${formattedMM}:${formattedSS}:${formattedMS}`);
+    document.getElementById("clockedTimeDisplay").innerHTML = clockedTimeTotal;
+    document.getElementById("btnClock").style.display = "none";
+    document.getElementById("btnBreak").style.display = "none";
+    document.getElementById("btnShift").style.display = "inline";
+}
+
+function timerBreakStart() {
+    localStorage.setItem("breakStart", Date.now());
+}
+
+function timerBreakEnd() {
+    localStorage.setItem("breakEnd", Date.now());
+    var breakTime = localStorage.getItem("breakEnd") - localStorage.getItem("breakStart");
+
+    let diffInBreakHrs = breakTime / 3600000;
+    let hh = Math.floor(diffInBreakHrs);
+  
+    let diffInBreakMin = (diffInBreakHrs - hh) * 60;
+    let mm = Math.floor(diffInBreakMin);
+  
+    let diffInBreakSec = (diffInBreakMin - mm) * 60;
+    let ss = Math.floor(diffInBreakSec);
+  
+    let diffInBreakMs = (diffInBreakSec - ss) * 100;
+    let ms = Math.floor(diffInBreakMs);
+  
+    let formattedHH = hh.toString().padStart(2, "0");
+    let formattedMM = mm.toString().padStart(2, "0");
+    let formattedSS = ss.toString().padStart(2, "0");
+    let formattedMS = ms.toString().padStart(2, "0");
+
+    var breakTime = (`${formattedHH}:${formattedMM}:${formattedSS}:${formattedMS}`);
+    document.getElementById("breakTimeDisplay").innerHTML = breakTime;
+    document.getElementById("btnBreak").style.display = "none";
+}
+

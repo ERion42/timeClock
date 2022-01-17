@@ -25,62 +25,76 @@
 
     <main class="container text-center">
 
-        <!-- <section class="row">
-            <div class="col my-5" id="userPanel">
-                Welcome [User]
-            </div>
-        </section>
+        <section class="row" style="height: 200px;">
+            <div class="col" style="height: 100px;background-color">
+                <div class="row">
+                    <div class="col">Clocked In At:</div>
+                    <div class="col" id="clockInTime">00:00 am</div>
+                </div>
 
-        <section class="row">
-            <div class="col">
-                <p>Shift Started : </p>
-            </div>
-            <div class="col">
-                <span id="shiftStart">00:00 am</span>
-            </div>
-                <p>Break Started : <span id="breaktStart">00:00 am</span></p>
-                
-                <p>Break Ended : <span id="breakEnd">00:00 am</span></p>
-                
-                <p>Shift Ended: <span id="shiftEnd">00:00 am</span></p>
+                <div class="row">
+                    <div class="col">Break Began At:</div>
+                    <div class="col" id="breakStartTime">00:00 am</div>
+                </div>               
 
-            </div>
-
-            <div class="col">
-                <input onclick="change()" type="button" value="Clock In" id="btnClock" />
-            </div> -->
-
-
-            <div class="row" style="height: 200px;">
-                <div class="col" style="height: 100px;background-color;">
-                    <div class="row">
-                        <div class="col">Clocked In At:</div>
-                        <div class="col" id="clockInTime">00:00 am</div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">Break Began At:</div>
-                        <div class="col" id="breakStartTime">00:00 am</div>
-                    </div>               
-
-                    <div class="row">
-                        <div class="col">Break Ended At:</div>
-                        <div class="col" id="breakEndTime">00:00 am</div>
-                    </div>               
-                    <div class="row">
-                        <div class="col">Clocked Out At:</div>
-                        <div class="col" id="clockOutTime">00:00 am</div>
-                    </div>
-                   
+                <div class="row">
+                    <div class="col">Break Ended At:</div>
+                    <div class="col" id="breakEndTime">00:00 am</div>
+                </div>               
+            
+                <div class="row">
+                    <div class="col">Clocked Out At:</div>
+                    <div class="col" id="clockOutTime">00:00 am</div>
                 </div>
                 
-                <div class="col">
-                    <input onclick="Clock()" type="button" value="Clock In" id="btnClock" />
-                    <input onclick="Break()" type="button" value="Start Break" id="btnBreak" />
-                </div> 
+            </div>
+                
+            <div class="col align-self-center justify-content-center d-flex">
+                <input onclick="Clock()" type="button" value="Clock In" id="btnClock" />
+                <input onclick="Break()" type="button" value="Start Break" id="btnBreak" /></span>
 
+            </div> 
+
+            
+            <!-- This is going to be the timer function- I don't know how to get it to work yet so it's commented out -->
+            <!-- <div class="row">
+                <div class="col">
+                    Time Elapsed:
+                </div>
+                <div class="col" id="display">
+                    00:00:00:00
+                </div>
+            </div> -->
+
+            <div class="row">
+                <div class="col">
+                    Clocked Time:
+                </div>
+                <div class="col">
+                    <span id="clockedTimeDisplay">00:00:00:00</span>
+                </div>
+                <div class="col">
+                    Break Time:
+                </div>
+                <div class="col">
+                    <span id="breakTimeDisplay">00:00:00:00</span>
+                </div>
             </div>
 
+            <div class="row">
+                <div class="col">
+                    <input onclick="endShift()" type="button" value="End Shift" id="btnShift">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    Total Working Time:
+                </div>
+                <div class="col">
+                    00:00:00:00
+                </div>
+            </div>
 
         </section>
         

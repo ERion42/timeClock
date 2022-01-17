@@ -19,18 +19,16 @@ main {
     font-size: 3rem;
 }
 
-#btnIn {
-    display: initial;
+#btnClock {
+    display: block;
 }
 
-#btnOut {
-    display: initial;
+#btnBreak {
+    display: none;
 }
 
-#btnBreakS {
-    display: initial;
-}
 
-#btnbreakE {
-    display: initial;
+#btnShift {
+    display: none;
+
 }
