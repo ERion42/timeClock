@@ -5,8 +5,9 @@ nav {
 }
 
 main {
-    height: 75vh;
-    background-color: blanchedalmond;
+    /* height: 75vh; */
+    /* background-color: blanchedalmond; */
+    background-color: white;
 }
 
 #myClock {
@@ -31,4 +32,36 @@ main {
 #btnShift {
     display: none;
 
+}
+
+/* might not need to use this */
+/* #clockClick {
+    height: 400px;
+    width: 400px;
+    background-color: blue;
+    border-radius: 500px;
+    position: absolute;
+    top: 295px;
+    left: 790px;
+    opacity: 25%;
+    } */
+
+
+#officeBackground {
+    background-image: url("../img/StanleysOffice02.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    max-width: 2985px;
+    min-width: 800px;
+    background-position: center;
+    background-size: cover;
+}
+
+@media only screen and (max-width:925px) {
+    #officeBackground {
+        background-image: url("../img/StanleysOffice02b.png");
+        background-position: center;
+        background-size: contain;
+    }
 }
